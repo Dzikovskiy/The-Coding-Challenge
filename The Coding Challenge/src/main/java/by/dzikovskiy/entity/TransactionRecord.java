@@ -3,12 +3,14 @@ package by.dzikovskiy.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class TransactionRecord {
     private String id;
     private Date date;
