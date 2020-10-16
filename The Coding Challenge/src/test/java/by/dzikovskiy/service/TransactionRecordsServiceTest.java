@@ -16,17 +16,17 @@ class TransactionRecordsServiceTest {
     @Test
     void getTransactionInfo() {
         //given
-        String csvFile = "testInputCSV.csv";
+        String csvFileName = "testInputCSV.csv";
         try (InputStream input = CSVReaderTest.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties prop = new Properties();
             //load a properties file from class path
             prop.load(input);
-            csvFile = prop.getProperty("csvFileName");
+            csvFileName = prop.getProperty("csvFileName");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-        TransactionRecordsService service = new TransactionRecordsService(csvFile);
+        TransactionRecordsService service = new TransactionRecordsService(csvFileName);
         TransactionOutputInfo info1 = new TransactionOutputInfo();
         TransactionOutputInfo info2 = new TransactionOutputInfo();
         TransactionOutputInfo info3 = new TransactionOutputInfo();
@@ -48,6 +48,7 @@ class TransactionRecordsServiceTest {
         }
 
         //then
+
         Assert.assertEquals(1, info1.getNumberOfTransactions());
         Assert.assertEquals(59.99, info1.getAverageTransactionValue(), 0.0);
         Assert.assertEquals(1, info2.getNumberOfTransactions());

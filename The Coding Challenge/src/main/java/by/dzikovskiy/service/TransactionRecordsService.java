@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TransactionRecordsService {
-    String csvFile;
+    String csvFileName;
     CSVReader csvReader;
 
     public TransactionRecordsService(String csvFileName) {
-        this.csvFile = csvFileName;
+        this.csvFileName = csvFileName;
         this.csvReader = new CSVReader();
     }
 
@@ -29,7 +29,7 @@ public class TransactionRecordsService {
      */
     public TransactionOutputInfo getTransactionInfo(Date fromDate, Date toDate, String merchant) {
         TransactionOutputInfo outputInfo = new TransactionOutputInfo();
-        ArrayList<TransactionRecord> records = csvReader.readCSVFormFile(csvFile);
+        ArrayList<TransactionRecord> records = csvReader.readCSVFormFile(csvFileName);
 
         deleteTransactionsWithReversal(records);
 
