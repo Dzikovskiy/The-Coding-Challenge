@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CSVReader {
     String line = "";
-    String cvsSplitBy = ",";
+    String csvSplitBy = ",";
 
     /**
      * Method for parsing csv file into ArrayList<TransactionRecord>
@@ -32,7 +32,7 @@ public class CSVReader {
                 record = new TransactionRecord();
 
                 // use comma as separator
-                String[] recordStringFromFile = line.split(cvsSplitBy);
+                String[] recordStringFromFile = line.split(csvSplitBy);
 
                 record.setId(recordStringFromFile[0]);
                 try {
